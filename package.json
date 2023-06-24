@@ -2,6 +2,9 @@
   "name": "gift",
   "version": "0.1.0",
   "private": true,
+  "author": "Edwar Orlando Amaya Diaz",
+  "description": "",
+  "email": "edwaramayadiaz@gmail.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,17 +12,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^4.15.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "autoprefixer": "10.4.14",
+    "bcryptjs": "2.4.3",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
+    "flowbite": "^1.6.6",
+    "jose": "^4.14.4",
     "next": "13.4.5",
+    "next-auth": "^4.22.1",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3"
+  },
+  "devDependencies": {
+    "prisma": "^4.15.0"
   }
 }

@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  email       String    @unique
+  name        String?
+  password    String
+  role        Role[]    @default([USER])
+  profile     Profile?
+  company     Company?  @relation(fields: [companyId], references: [id])
+  companyId   String?   @unique @db.ObjectId
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Company {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  bio   String
+  users User[]
+}
+
+model DocumentType {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  code      String
+  profiles  Profile[]
+}
+
+model PhoneCode {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  code    String @unique
+  name    String @unique
+  profile Profile[]
+}
+
+model Profile {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  bio             String?
+  birthdate       DateTime      @default(now())
+  phoneCode       PhoneCode?    @relation(fields: [phoneCodeId], references: [id])
+  phoneCodeId     String?       @unique @db.ObjectId
+  phone           String?       @unique
+  documentType    DocumentType? @relation(fields: [documentTypeId], references: [id])
+  documentTypeId  String?       @unique @db.ObjectId
+  documentNumber  String?       @unique
+  user            User          @relation(fields: [userId], references: [id])
+  userId          String        @unique @db.ObjectId
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPERADMIN
+  SUPREME
+}

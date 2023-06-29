@@ -1,7 +1,10 @@
+'use client'
 import ButtonDark from "@/components/ButtonDark";
 import Input from "@/components/Input";
+import TextArea from "@/components/TextArea";
 import Image from "next/image";
 import Link from "next/link";
+import Spline from '@splinetool/react-spline';
 
 export default function Home() {
   const carousel: string[] = [
@@ -13,47 +16,14 @@ export default function Home() {
   ];
   return (
     <main className="min-h-screen flex-col items-center justify-between">
-      <section className="overflow-hidden">
-        <div className="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] h-[500px] bg-[url('/home/hero.png')]">
-          <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0.75)]">
-            <div className="flex h-full items-center justify-center">
-              <div className="px-6 text-center text-white md:px-12">
-                <h1 className="mt-6 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
-                  Tarjetas de regalo con descuento
-                  <br />
-                  <span>de los mejores comercios</span>
-                </h1>
-                <Link
-                  className="mb-2 inline-block rounded-full border-[0.5px] border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 md:mr-2 md:mb-0"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  href="/"
-                  role="button"
-                >
-                  Empezar
-                </Link>
-                <Link
-                  className="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  href="/services"
-                  role="button"
-                >
-                  Saber más
-                </Link>
-              </div>
-            </div>
+      <section className="flex h-[950px]">
+          <div className="absolute w-full md:w-[950px] h-[950px] left-0 xl:left-1/2">
+            <Spline scene="https://prod.spline.design/FgJc1XKAdQSxIDto/scene.splinecode" />
           </div>
-        </div>
-
-        <div className="-mt-2.5 text-white md:-mt-4 lg:-mt-6 xl:-mt-10 h-[50px] scale-[2] origin-[top_center]">
-          <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M 0 48 L 1437.5 48 L 2880 48 L 2880 0 L 2160 0 C 1453.324 60.118 726.013 4.51 720 0 L 0 0 L 0 48 Z"
-              fill="#e1e5e6"
-            ></path>
-          </svg>
-        </div>
+          <div className="flex flex-col w-screen h-screen justify-center items-center">
+            <h1 className="text-white font-bold text-[50px] sm:text-[100px] md:text-[150px] font-poppins drop-shadow-2xl tracking-widest leading-none">Giftme</h1>
+            <h2 className="text-white font-normal text-[40px] sm:text-[70px] md:text-[100px] font-poppins drop-shadow-lg tracking-tighter leading-none">Tu aliado</h2>
+          </div>
       </section>
       <section className="mb-32">
         <div className="flex justify-center">
@@ -421,9 +391,9 @@ export default function Home() {
         <div className="flex flex-wrap">
           <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
             <form className="flex flex-col gap-2">
-              <Input label="Nombre" placeholder="Nombre" />
-              <Input label="Correo electronico" placeholder="Correo electronico" />
-              <Input label="Mensaje" placeholder="Mensaje" />
+              <Input id="name" type="text" label="Nombre" placeholder="Nombre" />
+              <Input id="email" type="email" label="Correo electronico" placeholder="Correo electronico" />
+              <TextArea id="message" label="Mensaje" placeholder="Mensaje" />
               <ButtonDark>
                 Enviar
               </ButtonDark>

@@ -63,7 +63,4 @@ export const authOptions: NextAuthOptions = {
         return token
       }
     },
-    pages: {
-      signIn: "/login"
-    }
   };

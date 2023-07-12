@@ -9,7 +9,7 @@ interface Props {
 
 export default function CardItem({ children, title, subtitle, onClick}: Props) {
   return (
-    <div onClick={onClick} className={`flex w-full justify-between items-center pl-10 pr-12 ${onClick ? 'cursor-pointer' : 'cursor-default'}`}>
+    <div onClick={onClick} className={`flex w-full justify-between items-center pl-2 md:pl-4 lg:pl-8 xl:pl-10 pr-4 md:pr-6 lg:pr-10 xl:pr-12 ${onClick ? 'cursor-pointer' : 'cursor-default'}`}>
       <div className="flex gap-4 items-center">
         {children}
         <div className="flex flex-col">

@@ -4,7 +4,7 @@ import Page from "@/components/Page";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import CardItem from "./CardItem";
-import User from "@/components/Icons/user";
+import User from "@/components/Icons/User";
 import Lock from "@/components/Icons/Lock";
 import CreditCard from "@/components/Icons/CreditCard";
 

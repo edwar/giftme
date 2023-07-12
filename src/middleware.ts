@@ -52,13 +52,13 @@ export default withAuth({
   callbacks: {
     authorized: ({req, token}) => {
       if (validUrl("/login", req.nextUrl.pathname) && token) {
-        NextResponse.redirect(new URL('/', req.url));
+        return true;
       }
       if(validUrl("/register", req.nextUrl.pathname) && token) {
-        NextResponse.redirect(new URL('/', req.url));
+        return true;
       }
       if(validUrl("/account", req.nextUrl.pathname) && !token) {
-        NextResponse.redirect(new URL('/', req.url))
+        return true
       }
       return !!token
     },

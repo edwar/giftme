@@ -55,7 +55,7 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   if(validUrl("/register") && autToken) {
     return NextResponse.redirect(new URL('/', request.url));
   }
-  if(validUrl("/account") && !autToken) {
+  if(validUrl("/account") && autToken) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 }

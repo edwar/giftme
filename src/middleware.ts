@@ -1,15 +1,18 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { verify } from "./services/jwt_sign_verify";
-import { withAuth } from "next-auth/middleware"
+import { getToken } from "next-auth/jwt";
 
 const secret = process.env.NEXTAUTH_SECRET || "secret";
 
-function validUrl(path: string, pathname: string): boolean {
-  return pathname.startsWith(path);
-}
-
 export async function middleware(request: NextRequest) {
-  if (validUrl("/api", request.nextUrl.pathname)) {
+  function validUrl(path: string): boolean {
+    return request.nextUrl.pathname.startsWith(path);
+  }
+  const autToken = await getToken({
+    req: request,
+    secret,
+  });
+  if (validUrl("/api")) {
     try {
       let token: string | undefined;
 
@@ -46,24 +49,16 @@ export async function middleware(request: NextRequest) {
       return NextResponse.json({ message: "No esta autorizado" }, { status: 401 });
     }
   }
+  if (validUrl("/login") && autToken) {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+  if(validUrl("/register") && autToken) {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+  if(validUrl("/account") && !autToken) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
 }
-
-export default withAuth({
-  callbacks: {
-    authorized: ({req, token}) => {
-      if (validUrl("/login", req.nextUrl.pathname) && token) {
-        return true;
-      }
-      if(validUrl("/register", req.nextUrl.pathname) && token) {
-        return true;
-      }
-      if(validUrl("/account", req.nextUrl.pathname) && !token) {
-        return true
-      }
-      return !!token
-    },
-  },
-})
 
 export const config = {
   matcher: [

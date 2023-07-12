@@ -1,345 +1,149 @@
-'use client'
+"use client";
 import ButtonDark from "@/components/ButtonDark";
 import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
 import Image from "next/image";
-import Link from "next/link";
-import Spline from '@splinetool/react-spline';
 
 export default function Home() {
-  const carousel: string[] = [
-    "/carousel/app.webp",
-    "/carousel/gift.webp",
-    "/carousel/payment.webp",
-    "/carousel/post.webp",
-    "/carousel/send.webp",
-  ];
   return (
     <main className="min-h-screen flex-col items-center justify-between">
-      <section className="flex h-[950px]">
-          <div className="absolute w-full md:w-[950px] h-[950px] left-0 xl:left-1/2">
-            <Spline scene="https://prod.spline.design/FgJc1XKAdQSxIDto/scene.splinecode" />
-          </div>
-          <div className="flex flex-col w-screen h-screen justify-center items-center">
-            <h1 className="text-white font-bold text-[50px] sm:text-[100px] md:text-[150px] font-poppins drop-shadow-2xl tracking-widest leading-none">Giftme</h1>
-            <h2 className="text-white font-normal text-[40px] sm:text-[70px] md:text-[100px] font-poppins drop-shadow-lg tracking-tighter leading-none">Tu aliado</h2>
-          </div>
+      <section className="flex my-20">
+        <div className="flex flex-col w-screen justify-center items-center">
+          <h1 className="text-white font-bold text-[60px] sm:text-[100px] md:text-[150px] font-poppins drop-shadow-2xl tracking-widest leading-none">
+            Giftme
+          </h1>
+          <h2 className="text-white font-normal text-[50px] sm:text-[70px] md:text-[100px] font-poppins drop-shadow-lg tracking-tighter leading-none">
+            Tu aliado
+          </h2>
+        </div>
       </section>
-      <section className="mb-32">
+      <section className="mb-10">
         <div className="flex justify-center">
           <div className="max-w-[700px] text-center">
-            <p className="mb-6 font-bold uppercase text-primary dark:text-primary-400">
-              Features
+            <h2 className="mb-6 font-poppins text-4xl text-white font-bold">
+              ¿Que hacemos?
+            </h2>
+            <p className="text-xl text-neutral-500">
+              Compra giftcards de comercios exclusivos con descuento. ¡Ahorra al pagar
+              menos por las giftcards y disfruta de un valor mayor al
+              canjearlas! Simplifica tus compras y obtén más por tu dinero.
             </p>
-            <h2 className="mb-6 text-3xl font-bold">Why is it so great?</h2>
-            <p className="mb-16 text-neutral-500 dark:text-neutral-300">
-              Nunc tincidunt vulputate elit. Mauris varius purus malesuada neque
-              iaculis malesuada. Aenean gravida magna orci, non efficitur est
-              porta id. Donec magna diam.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Support 24/7</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Pellentesque mollis, metus nec fringilla aliquam
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Tracking</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Magna lacus iaculis elit, quis pharetra varius.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Reporting</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Pellentesque varius ex vel consequat quis.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Analytics</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Vestibulum gravida iaculis nisl, vel lobortis eros.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Huge community</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Praesent vulputate lacus bibendum augue .
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Easy to use</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Sed mauris ex, imperdiet sit amet nisl ac, ultrices.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Frequent updates</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Aenean lectus ex, placerat id tellus in eros.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex">
-              <div className="shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="#169f4d"
-                  className="mr-3 h-5 w-5 text-success"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-2 grow">
-                <p className="mb-1 font-bold">Responsive</p>
-                <p className="text-neutral-500 dark:text-neutral-300">
-                  Donec consequat orci quis volutpat imperdiet.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
       <section className="mb-32 text-center lg:text-left">
-    <div className="py-12 px-6 md:px-12">
-      <div className="container mx-auto xl:px-32">
-        <div className="grid items-center lg:grid-cols-2">
-          <div className="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
-            <div
-              className="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[25px] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:px-12 lg:-mr-14">
-              <h2 className="mb-2 text-3xl font-bold text-primary dark:text-primary-400">
-                Anna Doe
-              </h2>
-              <p className="mb-4 font-semibold">Graphic designer</p>
-              <p className="mb-6 text-neutral-500 dark:text-neutral-300">
-                Nunc tincidunt vulputate elit. Mauris varius purus malesuada
-                neque iaculis malesuada. Aenean gravida magna orci, non
-                efficitur est porta id. Donec magna diam.
-              </p>
-              <p className="mb-6 text-neutral-500 dark:text-neutral-300">
-                Ad, at blanditiis quaerat laborum officia incidunt
-                cupiditate dignissimos voluptates eius aliquid minus
-                praesentium! Perferendis et totam ipsum ex aut earum libero
-                accusamus voluptas quod numquam saepe, consequuntur nihil
-                quia tenetur consequatur. Quis, explicabo deserunt quasi
-                assumenda ea maiores nulla, et dolor saepe praesentium natus
-                error reiciendis voluptas iste. Esse, laudantium ipsum
-                animi, quos voluptatibus atque vero repellat sit eligendi
-                autem maiores quasi cum aperiam. Aperiam rerum culpa
-                accusantium, ducimus deserunt aliquid alias vitae quasi
-                corporis placeat vel maiores explicabo commodi!
-              </p>
-              <ul className="flex justify-center lg:justify-start">
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960"
-                    className="w-5 text-primary dark:text-primary-400">
-                    <path fill="currentColor"
-                      d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                  </svg>
-                </li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960"
-                    className="w-5 text-primary dark:text-primary-400">
-                    <path fill="currentColor"
-                      d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                  </svg>
-                </li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960"
-                    className="w-5 text-primary dark:text-primary-400">
-                    <path fill="currentColor"
-                      d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                  </svg>
-                </li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960"
-                    className="w-5 text-primary dark:text-primary-400">
-                    <path fill="currentColor"
-                      d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                  </svg>
-                </li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960"
-                    className="w-5 text-primary dark:text-primary-400">
-                    <path fill="currentColor"
-                      d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z" />
-                  </svg>
-                </li>
-              </ul>
+        <div className="px-6 md:px-12">
+          <div className="container mx-auto xl:px-32">
+            <div className="grid items-center lg:grid-cols-2">
+              <div className="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
+                <div className="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[25px] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:px-12 lg:-mr-14">
+                  <h2 className="mb-2 font-poppins text-3xl font-bold text-primary dark:text-primary-400">
+                    Anna Doe
+                  </h2>
+                  <p className="mb-4 font-poppins font-semibold">
+                    Graphic designer
+                  </p>
+                  <p className="mb-6 font-poppins text-neutral-500 dark:text-neutral-300">
+                    Nunc tincidunt vulputate elit. Mauris varius purus malesuada
+                    neque iaculis malesuada. Aenean gravida magna orci, non
+                    efficitur est porta id. Donec magna diam.
+                  </p>
+                  <p className="mb-6 font-poppins text-neutral-500 dark:text-neutral-300">
+                    Ad, at blanditiis quaerat laborum officia incidunt
+                    cupiditate dignissimos voluptates eius aliquid minus
+                    praesentium! Perferendis et totam ipsum ex aut earum libero
+                    accusamus voluptas quod numquam saepe, consequuntur nihil
+                    quia tenetur consequatur. Quis, explicabo deserunt quasi
+                    assumenda ea maiores nulla, et dolor saepe praesentium natus
+                    error reiciendis voluptas iste. Esse, laudantium ipsum
+                    animi, quos voluptatibus atque vero repellat sit eligendi
+                    autem maiores quasi cum aperiam. Aperiam rerum culpa
+                    accusantium, ducimus deserunt aliquid alias vitae quasi
+                    corporis placeat vel maiores explicabo commodi!
+                  </p>
+                  <ul className="flex justify-center lg:justify-start">
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 96 960 960"
+                        className="w-5 text-primary dark:text-primary-400"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"
+                        />
+                      </svg>
+                    </li>
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 96 960 960"
+                        className="w-5 text-primary dark:text-primary-400"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"
+                        />
+                      </svg>
+                    </li>
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 96 960 960"
+                        className="w-5 text-primary dark:text-primary-400"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"
+                        />
+                      </svg>
+                    </li>
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 96 960 960"
+                        className="w-5 text-primary dark:text-primary-400"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"
+                        />
+                      </svg>
+                    </li>
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 96 960 960"
+                        className="w-5 text-primary dark:text-primary-400"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m233 976 65-281L80 506l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"
+                        />
+                      </svg>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="md:mb-12 lg:mb-0">
+                <Image
+                  width={488}
+                  height={732}
+                  src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/080.jpg"
+                  className="lg:rotate-[6deg] w-full rounded-lg shadow-lg dark:shadow-black/20"
+                  alt="image"
+                />
+              </div>
             </div>
           </div>
-          <div className="md:mb-12 lg:mb-0">
-            <Image width={488} height={732} src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/080.jpg"
-              className="lg:rotate-[6deg] w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
       <section className="mb-32 text-center">
-        <h2 className="mb-16 text-3xl font-medium">
+        <h2 className="mb-16 font-poppins text-3xl font-medium">
           Trusted by <strong>2,000,000+</strong> users
         </h2>
 
-        <div className="grid items-center gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid items-center justify-center gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div className="mb-12 lg:mb-0">
             <Image
               width={206}
@@ -384,19 +188,29 @@ export default function Home() {
       <section className="mb-32">
         <div className="flex justify-center">
           <div className="text-center md:max-w-xl lg:max-w-3xl">
-            <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
+            <h2 className="mb-12 font-poppins px-6 text-3xl font-bold">
+              Contact us
+            </h2>
           </div>
         </div>
 
         <div className="flex flex-wrap">
           <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
             <form className="flex flex-col gap-2">
-              <Input id="name" type="text" label="Nombre" placeholder="Nombre" />
-              <Input id="email" type="email" label="Correo electronico" placeholder="Correo electronico" />
+              <Input
+                id="name"
+                type="text"
+                label="Nombre"
+                placeholder="Nombre"
+              />
+              <Input
+                id="email"
+                type="email"
+                label="Correo electronico"
+                placeholder="Correo electronico"
+              />
               <TextArea id="message" label="Mensaje" placeholder="Mensaje" />
-              <ButtonDark>
-                Enviar
-              </ButtonDark>
+              <ButtonDark>Enviar</ButtonDark>
             </form>
           </div>
           <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
@@ -422,13 +236,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-6 grow">
-                    <p className="mb-2 font-bold dark:text-white">
+                    <p className="mb-2 font-poppins font-bold dark:text-white">
                       Technical support
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       support@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       +1 234-567-89
                     </p>
                   </div>
@@ -455,13 +269,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-6 grow">
-                    <p className="mb-2 font-bold dark:text-white">
+                    <p className="mb-2 font-poppins font-bold dark:text-white">
                       Sales questions
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       sales@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       +1 234-567-89
                     </p>
                   </div>
@@ -488,11 +302,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-6 grow">
-                    <p className="mb-2 font-bold dark:text-white">Press</p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="mb-2 font-poppins font-bold dark:text-white">
+                      Press
+                    </p>
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       press@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       +1 234-567-89
                     </p>
                   </div>
@@ -519,11 +335,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-6 grow">
-                    <p className="mb-2 font-bold dark:text-white">Bug report</p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="mb-2 font-poppins font-bold dark:text-white">
+                      Bug report
+                    </p>
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       bugs@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="font-poppins text-neutral-500 dark:text-neutral-200">
                       +1 234-567-89
                     </p>
                   </div>

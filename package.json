@@ -13,8 +13,6 @@
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
-    "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^0.9.374",
     "@types/bcryptjs": "^2.4.2",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",

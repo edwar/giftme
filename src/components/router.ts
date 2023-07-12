@@ -8,11 +8,7 @@ export const routerLink: RouterLink[] = [
         link: "/"
     },
     {
-        name: "Nosotros",
-        link: "/about"
-    },
-    {
-        name: "Servicio",
-        link: "/services"
+        name: "Tienda",
+        link: "/store"
     }
 ]

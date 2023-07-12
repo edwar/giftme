@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { LoginForm } from "./form";
+import Page from "@/components/Page";
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen">
+    <Page>
       <div className="flex flex-col lg:flex-row">
         <div className="hidden min-h-screen w-full lg:flex lg:flex-col justify-center items-center gap-5 p-5">
           <Image src='/login/login.svg' className="w-auto h-full" width={648} height={523} alt="Imagen de login"/>
@@ -13,6 +14,6 @@ export default function RegisterPage() {
           <LoginForm />
         </div>
       </div>
-    </div>
+    </Page>
   );
 }

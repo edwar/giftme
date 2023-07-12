@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={poppins.variable}>
         <NextAuthProvider>
           <NavBar />
-          <div className='container mx-auto max-w-[1600px]'>
+          <div className='container mx-auto max-w-[1600px] px-4 pt-10'>
             {children}
           </div>
           <Footer />

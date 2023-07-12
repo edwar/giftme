@@ -14,7 +14,13 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   }
   if (validUrl("/api")) {
     try {
-      const token = request.headers.get("x-access-token");
+      let token: string | undefined;
+
+      if (request.cookies.has("token")) {
+        token = request.cookies.get("token")?.value;
+      } else if (request.headers.get("Authorization")?.startsWith("Bearer ")) {
+        token = request.headers.get("Authorization")?.substring(7);
+      }
 
       if (!token)
         return NextResponse.json(

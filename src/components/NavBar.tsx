@@ -12,7 +12,7 @@ function NavBar() {
   const pathname = usePathname();
   const { data: session } = useSession();
   return (
-    <nav className="bg-white border-gray-200">
+    <nav className="fixed w-full z-20 bg-white border-gray-200">
       <div className="max-w-[1600px] flex flex-wrap items-center justify-between mx-auto px-2 py-1">
         <Link href="/" className="flex items-center">
           <Image

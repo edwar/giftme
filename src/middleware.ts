@@ -2,11 +2,11 @@ import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 import { verify } from "./services/jwt_sign_verify";
 
 const secret = process.env.NEXTAUTH_SECRET || "secret";
+const keyToken = process.env.NEXTAUTH_KEY_TOKEN || "next-auth.session-token"
 
 export async function middleware(request: NextRequest) {
-  const token = request.cookies;
-  console.log(token)
-  const authToken = ""
+  const token = request.cookies.get(keyToken);
+  const authToken = token?.value
   function validUrl(path: string): boolean {
     return request.nextUrl.pathname.startsWith(path);
   }

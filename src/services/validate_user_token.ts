@@ -10,7 +10,7 @@ export class ValidationError extends Error {
 export async function valid(req: Request) {
     const id = req.headers.get('user-id')
     
-    if(!id) throw new ValidationError("Credenciales invalidas")
+    if(!id) throw new ValidationError("Credenciales invalidass")
 
     const existeUser = await prisma.user.findUnique({
         where: {
@@ -18,7 +18,7 @@ export async function valid(req: Request) {
         }
     })
 
-    if(!existeUser) throw new ValidationError("Credenciales invalidas")
+    if(!existeUser) throw new ValidationError("Credenciales invalidasss")
 }
 
 export async function isAdmin(req: Request) {

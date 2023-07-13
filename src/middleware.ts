@@ -3,9 +3,10 @@ import { verify } from "./services/jwt_sign_verify";
 
 const secret = process.env.NEXTAUTH_SECRET || "secret";
 
-export async function middleware(request: NextRequest, event: NextFetchEvent) {
-  const token = request.cookies.get("next-auth.session-token");
-  const authToken = token?.value
+export async function middleware(request: NextRequest) {
+  const token = request.cookies;
+  console.log(token)
+  const authToken = ""
   function validUrl(path: string): boolean {
     return request.nextUrl.pathname.startsWith(path);
   }

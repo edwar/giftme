@@ -7,7 +7,7 @@ function validUrl(path: string, request: NextRequest): boolean {
 
 export async function middleware(request: NextRequest) {
 
-  const authToken = await getToken({ req: request })
+  const authToken = await getToken({ req: request, secureCookie: true })
 
   if (validUrl("/login", request) && authToken) {
     return NextResponse.redirect(new URL('/', request.url));

@@ -1,4 +1,4 @@
-import { authOptions } from "@/services/Auth";
+import { authOptions } from "@/services/AuthOptions";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 

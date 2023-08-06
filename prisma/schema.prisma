@@ -10,6 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+  SUPERADMIN
+  SUPREME
+}
+
 model User {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   email       String    @unique
@@ -24,9 +31,10 @@ model User {
 }
 
 model Company {
-  id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  bio   String
-  users User[]
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  bio       String
+  users     User[]
+  giftCard  GiftCard[]
 }
 
 model DocumentType {
@@ -59,9 +67,11 @@ model Profile {
   updatedAt       DateTime      @updatedAt
 }
 
-enum Role {
-  USER
-  ADMIN
-  SUPERADMIN
-  SUPREME
+model GiftCard {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  price     Int
+  discount  Int
+  image     String
+  company   Company @relation(fields: [companyId], references: [id])
+  companyId String @unique @db.ObjectId
 }

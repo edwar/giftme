@@ -1,7 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import isSame from "@/services/isSame";
-import { prisma } from "@/app/api/prisma.db";
+import { userService } from "./UserService";
 
 export const authOptions: NextAuthOptions = {
     session: {
@@ -18,47 +17,29 @@ export const authOptions: NextAuthOptions = {
           },
           password: { label: "Contraseña", type: "password" },
         },
-        async authorize(credentials, req) {
-          if (!credentials?.email || !credentials.password) return null;
-          const user = await prisma.user.findUnique({
-            where: {
-              email: credentials.email,
-            },
-          });
-  
-          if (!user) return null;
-  
-          const matchPassword = await isSame(credentials.password, user.password);
-  
-          if (!matchPassword) return null;
-  
-          const newUser = {
-            ...user,
-            password: undefined,
-          };
-  
-          return newUser;
+        async authorize(credentials) {
+          if (!credentials) {
+            throw new Error("No credentials.");
+          }
+          const { email, password } = credentials;
+          return userService.signInCredentials(email, password);
         },
       }),
-      // ...add more providers here
     ],
     callbacks: {
       session: ({ session, token }) => {
-        return {
-          ...session,
-          user: {
-            ...session.user,
-            id: token.id,
-          },
-        };
+        if(token && session.user) {
+          session.user.roles = token.roles;
+          session.user.id = token.id;
+          session.user.accessToken = token.accessToken;
+        }
+        return session
       },
-      jwt: ({ token, user }) => {
+      jwt: ({ token, user}) => {
         if(user) {
-          const u = user as unknown as any
-          return {
-            ...token,
-            id: u.id,
-          }
+          token.roles = user.roles;
+          token.id = user.id;
+          token.accessToken = user.accessToken
         }
         return token
       }

@@ -1,6 +1,6 @@
 'use client'
-import Page from "@/components/Page";
-import GiftCard from "../../components/GiftCard";
+import Page from "@/components/page";
+import GiftCard from "../../components/ui/gift-card";
 import { data } from "./data";
 
 export default function ShoppingPage() {

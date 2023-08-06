@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/api/prisma.db";
 import { hash } from "bcryptjs";
-import { sign } from "@/services/jwt_sign_verify"
+import { sign } from "@/services/JwtSignVerify"
 
-const secret = process.env.NEXTAUTH_SECRET || "secret";
+const secret = process.env.NEXTAUTH_SECRET ?? "secret";
 
-export async function POST(req: Request){
+export async function POST(req: NextRequest){
     const { name, email, password } = (await req.json()) as {
         name: string;
         email: string;
@@ -27,9 +27,6 @@ export async function POST(req: Request){
             profile: {
                 create: {}
             }
-        },
-        include: {
-            profile: true
         }
     })
 

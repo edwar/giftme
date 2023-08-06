@@ -1,6 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 type InputProps = {
   label: string;
+  center?: boolean;
+  action?: ReactNode;
 };
 const Input = (
   props: React.DetailedHTMLProps<
@@ -10,10 +12,10 @@ const Input = (
     InputProps
 ) => {
   return (
-    <div className="relative">
+    <div className="flex relative w-full">
       <input
         {...props}
-        className="
+        className={`
           cursor-text
           peer 
           h-12
@@ -27,7 +29,10 @@ const Input = (
           focus:border-black
           px-2
           font-poppins
-        "
+          text-sm
+          ${props.action && 'pr-7'}
+          ${props.center && "text-center"}
+        `}
       />
       <label
         htmlFor={props.id}
@@ -46,11 +51,15 @@ const Input = (
           peer-focus:text-gray-600
           peer-focus:text-xs
           font-poppins
-          
         "
       >
         {props.label}
       </label>
+      {props.action && (
+        <div className="absolute right-1 h-12 flex justify-center items-center">
+          {props.action}
+        </div>
+      )}
     </div>
   );
 };

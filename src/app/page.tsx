@@ -1,7 +1,6 @@
-"use client";
-import ButtonDark from "@/components/ButtonDark";
-import Input from "@/components/Input";
-import TextArea from "@/components/TextArea";
+import ButtonDark from "@/components/ui/button-dark";
+import Input from "@/components/ui/input";
+import TextArea from "@/components/ui/text-area";
 import Image from "next/image";
 
 export default function Home() {

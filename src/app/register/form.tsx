@@ -1,8 +1,8 @@
 "use client";
 
-import ButtonDark from "@/components/ButtonDark";
-import ButtonLight from "@/components/ButtonLight";
-import Input from "@/components/Input";
+import ButtonDark from "@/components/ui/button-dark";
+import ButtonLight from "@/components/ui/button-light";
+import Input from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 

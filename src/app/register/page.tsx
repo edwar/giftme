@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { RegisterForm } from "./form";
-import Page from "@/components/Page";
+import Page from "@/components/page";
 
 export default function RegisterPage() {
   return (

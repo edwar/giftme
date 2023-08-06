@@ -1,11 +1,10 @@
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/api/prisma.db";
-import { ValidationError, valid } from "@/services/validate_user_token";
+import { ValidationError, valid } from "@/services/ValidateUserToken";
 
-export async function GET(req: Request, context: { params: Record<string, any> }) {
+export async function GET(req: NextRequest, context: { params: Record<string, any> }) {
     try {
         await valid(req)
-        
         const userId = context.params.id
         // Buscar el perfil del usuario
         const profile = await prisma.profile.findUnique({
@@ -23,7 +22,7 @@ export async function GET(req: Request, context: { params: Record<string, any> }
     }
 }
 
-export async function PUT(req: Request, context: { params: Record<string, any> }){
+export async function PUT(req: NextRequest, context: { params: Record<string, any> }){
     try {
         await valid(req)
     

@@ -1,8 +1,8 @@
 import './globals.css'
 import { Poppins } from 'next/font/google'
 import { NextAuthProvider } from './providers'
-import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
+import NavBar from '@/components/nav-bar'
+import Footer from '@/components/footer'
 
 const poppins = Poppins({
   weight: ['400', '700'],
@@ -31,7 +31,6 @@ export default function RootLayout({
           </div>
           <Footer />
         </NextAuthProvider>
-        <script async src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
       </body>
     </html>
   )

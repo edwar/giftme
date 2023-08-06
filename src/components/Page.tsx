@@ -4,7 +4,7 @@ type PageProps = {
     children: ReactNode;
     className?: string;
 }
-export default function Page({ children, className }: PageProps) {
+export default function Container({ children, className }: PageProps) {
   return (
     <main className={`min-h-screen ${className}`}>
       {children}

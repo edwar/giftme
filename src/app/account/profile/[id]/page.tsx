@@ -2,12 +2,13 @@ import Container from "@/components/container";
 import { headers } from 'next/headers';
 
 async function getData(id:string, token: string) {
+  const url = process.env.NEXTAUTH_URL ?? ''
   const headers = new Headers({
     'Content-Type': 'application/json',
     "Authorization": `${token}`
   })  
 
-  const res = await fetch(`/api/profile/${id}`, {
+  const res = await fetch(`${url}/api/profile/${id}`, {
     headers
   })
 

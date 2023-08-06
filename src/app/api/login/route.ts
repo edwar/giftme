@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/api/prisma.db";
 import { sign } from "@/services/JwtSignVerify";
-import isSame from "@/services/IsSame";
+import isSame from "@/services/Same";
 
 const secret = process.env.NEXTAUTH_SECRET || "secret";
 

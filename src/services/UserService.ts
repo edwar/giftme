@@ -2,7 +2,7 @@
 import { User } from "next-auth";
 import { IUserService } from "./IUserService";
 import { prisma } from "@/app/api/prisma.db";
-import isSame from "./IsSame";
+import isSame from "./Same";
 import { sign } from "./JwtSignVerify";
 
 const secret = process.env.NEXTAUTH_SECRET ?? "secret";

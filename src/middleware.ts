@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
+const url = process.env.NEXTAUTH_URL ?? ''
+
 function validUrl(path: string, request: NextRequest): boolean {
   return request.nextUrl.pathname.startsWith(path);
 }
 
 export async function middleware(request: NextRequest) {
 
-  const authToken = await getToken({ req: request, secureCookie: true })
+  let authToken = null;
+  if (url === 'http://localhost:3000') {
+    authToken = await getToken({ req: request })
+  } else {
+    authToken = await getToken({ req: request, secureCookie: true })
+  }
 
   if (validUrl("/login", request) && authToken) {
     return NextResponse.redirect(new URL('/', request.url));

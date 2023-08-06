@@ -7,7 +7,7 @@ async function getData(id:string, token: string) {
     "Authorization": `${token}`
   })  
 
-  const res = await fetch(`http://localhost:3000/api/profile/${id}`, {
+  const res = await fetch(`/api/profile/${id}`, {
     headers
   })
 

@@ -1,4 +1,4 @@
-import Page from "@/components/page";
+import Container from "@/components/container";
 import { headers } from 'next/headers';
 
 async function getData(id:string, token: string) {
@@ -20,8 +20,8 @@ export default async function ProfilePage({ params }: { params: { id: string } }
   const token = headersList.get('Authorization') ?? '';
   const data = await getData(id, token)
   return (
-    <Page className="flex py-10 md:px-10 lg:px-32 2xl:px-96">
+    <Container className="flex py-10 md:px-10 lg:px-32 2xl:px-96">
       <pre>{JSON.stringify(data, null, 2)}</pre>
-    </Page>
+    </Container>
   )
 }

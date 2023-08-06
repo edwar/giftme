@@ -1,6 +1,6 @@
 "use client";
 import Card from "@/components/ui/card";
-import Page from "@/components/page";
+import Container from "@/components/container";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import CardItem from "./CardItem";
@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function RegisterPage() {
   const { data: session } = useSession();
   return (
-    <Page className="flex flex-col gap-10 items-center py-10 md:px-10 lg:px-32 2xl:px-96">
+    <Container className="flex flex-col gap-10 items-center py-10 md:px-10 lg:px-32 2xl:px-96">
       <Card className="py-6">
         <Image
           width={64}
@@ -47,6 +47,6 @@ export default function RegisterPage() {
           <CreditCard className="w-12 h-12 text-gray-400" />
         </CardItem>
       </Card>
-    </Page>
+    </Container>
   );
 }

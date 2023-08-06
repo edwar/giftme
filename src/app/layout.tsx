@@ -2,7 +2,7 @@ import './globals.css'
 import { Poppins } from 'next/font/google'
 import { NextAuthProvider } from './providers'
 import NavBar from '@/components/nav-bar'
-import Footer from '@/components/footer-page'
+import Footer from '@/components/footer'
 
 const poppins = Poppins({
   weight: ['400', '700'],

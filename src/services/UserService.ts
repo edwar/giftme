@@ -2,10 +2,10 @@
 import { User } from "next-auth";
 import { IUserService } from "./IUserService";
 import { prisma } from "@/app/api/prisma.db";
-import isSame from "./Same";
+import isSame from "./IsSame";
 import { sign } from "./JwtSignVerify";
 
-const secret = process.env.NEXTAUTH_SECRET ?? "secret";
+const secret = process.env.NEXTAUTH_SECRET || "secret";
 
 export class InMemoryUserService implements IUserService {
   async signInCredentials(email: string, password: string): Promise<User | null> {

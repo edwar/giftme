@@ -13,8 +13,8 @@ export const LoginForm = () => {
     email: "",
     password: "",
   }
-  let [loading, setLoading] = useState(false);
-  let [formValues, setFormValues] = useState(initialValue);
+  const [loading, setLoading] = useState(false);
+  const [formValues, setFormValues] = useState(initialValue);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

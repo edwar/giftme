@@ -10,6 +10,14 @@ export async function GET(req: NextRequest, context: { params: Record<string, an
         const profile = await prisma.profile.findUnique({
             where: {
                 userId
+            },
+            include: {
+                user: {
+                    select: {
+                        name: true,
+                        email: true
+                    }
+                }
             }
         })
     

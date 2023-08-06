@@ -1,6 +1,7 @@
 import React from "react";
 type TextAreaProps = {
   label: string;
+  rows?: number;
 };
 const TextArea = (
   props: React.DetailedHTMLProps<
@@ -10,10 +11,11 @@ const TextArea = (
     TextAreaProps
 ) => {
   return (
-    <div className="relative">
+    <div className="flex relative w-full">
       <textarea
         {...props}
         className="
+          pt-3
           cursor-text
           peer
           w-full 
@@ -26,6 +28,7 @@ const TextArea = (
           focus:border-black
           px-2
           font-poppins
+          text-sm
         "
       />
       <label
@@ -45,7 +48,6 @@ const TextArea = (
           peer-focus:text-gray-600
           peer-focus:text-xs
           font-poppins
-          
         "
       >
         {props.label}

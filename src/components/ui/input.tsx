@@ -3,6 +3,7 @@ type InputProps = {
   label: string;
   center?: boolean;
   action?: ReactNode;
+  blocked?: boolean;
 };
 const Input = (
   props: React.DetailedHTMLProps<
@@ -31,12 +32,14 @@ const Input = (
           font-poppins
           text-sm
           ${props.action && 'pr-7'}
-          ${props.center && "text-center"}
+          ${props.center && 'text-center'}
+          ${props.disabled ? 'bg-gray-50 cursor-not-allowed' : ''}
+          ${props.blocked ? 'bg-gray-50 cursor-pointer' : ''}
         `}
       />
       <label
         htmlFor={props.id}
-        className="
+        className={`
           cursor-text
           absolute 
           left-2
@@ -51,7 +54,9 @@ const Input = (
           peer-focus:text-gray-600
           peer-focus:text-xs
           font-poppins
-        "
+          ${props.disabled ? 'cursor-not-allowed' : ''}
+          ${props.blocked ? 'cursor-pointer' : ''}
+        `}
       >
         {props.label}
       </label>

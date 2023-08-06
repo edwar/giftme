@@ -1,4 +1,3 @@
-'use client'
 import Container from "@/components/container";
 import { headers } from 'next/headers';
 

@@ -54,6 +54,7 @@ model PhoneCode {
 model Profile {
   id              String        @id @default(auto()) @map("_id") @db.ObjectId
   bio             String?
+  image           String?
   birthdate       DateTime      @default(now())
   phoneCode       PhoneCode?    @relation(fields: [phoneCodeId], references: [id])
   phoneCodeId     String?       @unique @db.ObjectId

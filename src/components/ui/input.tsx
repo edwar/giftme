@@ -17,7 +17,6 @@ const Input = (
       <input
         {...props}
         className={`
-          cursor-text
           peer 
           h-12
           w-full 
@@ -33,8 +32,8 @@ const Input = (
           text-sm
           ${props.action && 'pr-7'}
           ${props.center && 'text-center'}
-          ${props.disabled ? 'bg-gray-50 cursor-not-allowed' : ''}
-          ${props.blocked ? 'bg-gray-50 cursor-pointer' : ''}
+          ${props.disabled ? 'bg-white cursor-not-allowed' : ''}
+          ${props.blocked ? 'bg-white cursor-pointer' : ''}
         `}
       />
       <label

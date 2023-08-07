@@ -4,6 +4,7 @@ import ButtonDark from "@/components/ui/button-dark";
 import ButtonLight from "@/components/ui/button-light";
 import { DatePicker } from "@/components/ui/date-picker";
 import Input from "@/components/ui/input";
+import Select, { Selected } from "@/components/ui/select";
 import TextArea from "@/components/ui/text-area";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -22,8 +23,13 @@ interface Profile {
   createdAt: Date;
   updatedAt: Date;
   user: User;
+  data: Data[];
 }
 
+interface Data {
+  label: string;
+  value: string;
+}
 interface User {
   name: string;
   email: string;
@@ -36,6 +42,7 @@ export default function Form({
   phone,
   documentTypeId,
   documentNumber,
+  data,
   user: { email, name },
 }: Profile) {
   const { back } = useRouter();
@@ -86,12 +93,16 @@ export default function Form({
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
   };
+
+  const handleSelect = ({ name, value }: Selected) => {
+    setFormValues({ ...formValues, [name]: value });
+  };
   return (
     <form
       onSubmit={onSubmit}
-      className="h-full grid grid-cols-2 gap-4 container mx-auto max-w-3xl"
+      className="h-full grid grid-cols-6 gap-4 container mx-auto max-w-3xl"
     >
-      <div className="flex bg-transparent rounded-full col-span-2 justify-center items-center">
+      <div className="flex bg-transparent rounded-full col-span-6 justify-center items-center">
         <div className="relative">
           <div
             onClick={() => {}}
@@ -128,7 +139,7 @@ export default function Form({
           />
         </div>
       </div>
-      <div>
+      <div className="col-span-3">
         <Input
           id="name"
           type="text"
@@ -137,10 +148,9 @@ export default function Form({
           name="name"
           value={formValues.name}
           onChange={handleChange}
-          disabled
         />
       </div>
-      <div>
+      <div className="col-span-3">
         <Input
           id="email"
           type="email"
@@ -149,21 +159,62 @@ export default function Form({
           name="email"
           value={formValues.email}
           onChange={handleChange}
-          disabled
         />
       </div>
-      <div>
+      <div className="col-span-3">
+        <Select
+          value={formValues.documentTypeId ? formValues.documentTypeId: '' }
+          name="documentTypeId"
+          onSelect={handleSelect}
+          label="Tipo de documento"
+          placeholder="Selecciona"
+          data={data}
+        />
+      </div>
+      <div className="col-span-3">
+        <Input
+          id="documentNumber"
+          type="number"
+          label="Número de documento"
+          placeholder="Número de documento"
+          name="documentNumber"
+          value={formValues.documentNumber}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="col-span-3">
         <DatePicker
           label="Fecha de nacimiento"
           setterDate={(value: Date) =>
-            setFormValues({ ...formValues, 'birthdate': value })
+            setFormValues({ ...formValues, birthdate: value })
           }
           value={new Date(formValues.birthdate)}
         />
       </div>
+      <div className="col-span-1">
+        <Input
+          id="phoneCodeId"
+          type="number"
+          label="Código"
+          placeholder="Codigo"
+          name="phoneCodeId"
+          value={formValues.phoneCodeId}
+          onChange={handleChange}
+        />
+      </div>
       <div className="col-span-2">
+        <Input
+          id="phone"
+          type="number"
+          label="Teléfono"
+          placeholder="Teléfono"
+          name="phone"
+          value={formValues.phone}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="col-span-6">
         <TextArea
-          className="col-span-2"
           id="bio"
           type="text"
           label="Biografia"
@@ -175,15 +226,14 @@ export default function Form({
         />
       </div>
 
-      <div className="flex col-span-2 gap-2 min-w-full">
+      <div className="flex col-span-6 gap-2 min-w-full">
         <ButtonDark type="submit" disabled={loading}>
-          {loading ? "loading..." : "Iniciar sesión"}
+          {loading ? "loading..." : "Actualizar"}
         </ButtonDark>
         <ButtonLight onClick={back} disabled={loading}>
           Atras
         </ButtonLight>
       </div>
-      <pre>{JSON.stringify(formValues, null, 2)}</pre>
     </form>
   );
 }
